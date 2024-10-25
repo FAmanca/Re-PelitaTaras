@@ -1,0 +1,96 @@
+.yume {
+    align-self: flex-start;
+    text-align: left;
+    max-width: 1150px;
+    width: 1500px;
+    margin: 10px;
+    padding: 10px;
+    background-color: rgb(237, 237, 237);
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+    font-size: large;
+}
+
+.user {
+    align-self: flex-start;
+    text-align: right;
+    max-width: 1150px;
+    width: 1500px;
+    margin: 10px;
+    padding: 10px;
+    background-color: rgb(237, 237, 237);
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+    font-size: large;
+}
+
+.tengah {
+    align-self: center;
+    text-align: center;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out; /* Transisi untuk perubahan warna */
+}
+
+#pesan {
+    text-align: center;
+    font-size: medium;
+    color: red;
+    font-weight: 500;
+    transition: color 0.3s ease-in-out; /* Transisi halus pada warna */
+}
+
+.ai {
+    height: 100vh;
+    transition: height 0.3s ease-in-out; /* Transisi pada tinggi elemen */
+}
+
+.input {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px; /* Rounded edges for a smooth look */
+    border: 1px solid #ccc;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1); /* Inner shadow for depth */
+    transition: box-shadow 0.3s ease, border 0.3s ease; /* Smooth transitions */
+}
+
+.head h1 {
+    font-size: 40px;
+    color: #333;
+    transition: color 0.3s ease-in-out, font-size 0.3s ease; /* Halus pada warna dan ukuran font */
+}
+
+.head h6 {
+    font-size: 20px;
+    color: #555;
+    transition: color 0.3s ease-in-out; /* Halus untuk warna */
+}
+
+/* Hover effects for smoother interaction */
+.keitaro:hover {
+    box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.25); /* Bayangan lebih dalam saat hover */
+}
+
+.input:focus {
+    border-color: #009688; /* Ubah warna border saat input aktif */
+    box-shadow: 0 0 5px rgba(0, 150, 136, 0.5); /* Tambah shadow pada focus */
+}
+
+/* Media Query untuk layar mobile */
+@media (max-width: 768px) {
+    .keitaro {
+        max-width: 100%;
+        width: 85%;
+        margin: 5px;
+        padding: 8px;
+    }
+
+    .head h1 {
+        font-size: 30px; /* Ukuran lebih kecil untuk mobile */
+    }
+
+    .head h6 {
+        font-size: 18px;
+    }
+}

@@ -1,0 +1,49 @@
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.head {
+    text-align: center;
+}
+
+.head span {
+    font-weight: bold;
+    color: #45489a;
+}
+
+.instructions-title {
+    font-size: 1.8em;
+    color: #333;
+    margin-top: 40px;
+}
+
+.instructions-text {
+    font-size: 1.8em;
+    color: #555;
+    line-height: 1.6;
+    margin: 20px 0;
+    text-align: justify;
+    margin: 40px;
+}
+
+.start-btn-container {
+    display: flex;
+    justify-content: center;
+}
+
+.start-btn {
+    margin-top: 150px;
+    width: 100%;
+    max-width: 600px;
+    height: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #28a745;
+    color: #fff;
+    padding: 5px;
+}
+.start-btn:hover {
+    background-color: #218838;
+}
