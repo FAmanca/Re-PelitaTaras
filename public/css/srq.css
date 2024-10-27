@@ -47,3 +47,39 @@
 .start-btn:hover {
     background-color: #218838;
 }
+
+.srq {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    box-sizing: border-box;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Bayangan elemen */
+}
+
+.kuis {
+    text-align: left;
+    font-size: 20px;
+    color: black;
+}
+.res {
+    text-align: left;
+    font-size: 20px;
+    color: black;
+}
+
+.res p {
+    font-size: large;
+    color: black;
+    margin-top: 2px;
+}
+
+.opsi {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Bayangan elemen */
+}

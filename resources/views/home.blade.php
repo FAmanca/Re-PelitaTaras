@@ -15,7 +15,7 @@
                             <h1><b>Re:</b>Pelita Taras<br>SMKN 11 Bandung</h1>
                             <p>Peduli Lindungi Kesehatan Mental Sebelas</p>
                             <p>informasi dan konsultasi kesehatan mental</p>
-                            <a href="#featured" class="btn btn-light">Discover More</a>
+                            <a href="/posts" class="btn btn-light">Discover More</a>
                         </div>
                     </div>
                 </div>
@@ -27,7 +27,7 @@
                         <div>
                             <h1>Lorem ipsum <br>dolor</h1>
                             <p>Phasellus luctus odio eget dui imperdiet, at pulvinar ante convallis.</p>
-                            <a href="#featured" class="btn btn-light">Discover More</a>
+                            <a href="/posts" class="btn btn-light">Discover More</a>
                         </div>
                     </div>
                 </div>
@@ -39,7 +39,7 @@
                         <div>
                             <h1>Suspendisse suscipit<br>nulla sed</h1>
                             <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed at massa turpis.</p>
-                            <a href="#featured" class="btn btn-light">Discover More</a>
+                            <a href="/posts" class="btn btn-light">Discover More</a>
                         </div>
                     </div>
                 </div>

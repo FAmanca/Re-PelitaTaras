@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AichatController;
+use App\Http\Controllers\KuisController;
 
 Route::get('/', function () {
     if (Auth::check()) {
@@ -15,12 +16,6 @@ Route::get('/about', function() {
     return view('about');
 })->name('about');
 
-//* SRQ
-Route::get('/srq29', function() {
-    return view('srq29');
-})->name('srq29');
-//* SRQ
-
 //! POST
 Route::get('/posts', function() {
     return view('posts');
@@ -31,6 +26,12 @@ Route::get('/posts', function() {
 Route::get('/ai', [AichatController::class, 'index'])->name('ai');
 Route::post('/ai', [AichatController::class, 'store'])->name('ai');
 //? AI CHAT
+
+//! SRQ 29
+Route::get('/srq29', [KuisController::class, 'index'])->name('srq29');
+Route::get('/kuis', [KuisController::class, 'show'])->name('srq29');
+Route::post('/hasil', [KuisController::class, 'submit'])->name('srq.submit');
+//! SRQ 29
 
 Route::get('/home', function () {
     return view('home');
@@ -46,8 +47,8 @@ Route::middleware([
     })->name('dashboard');
 });
 
-Route::get('/dashboard', function() {
+Route::get('/admin', function() {
     return view('admin/dashboard');
-})->name('posts');
+})->name('admin');
 
 

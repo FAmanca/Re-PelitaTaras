@@ -9,10 +9,10 @@
         <nav>
             <ul class="nav">
                 <li><a href="/home">Home</a></li>
-                <li><a href="#">Postingan</a></li>
-                <li><a href="#">Chat BK</a></li>
-                <li><a href="#">Yume AI</a></li>
-                <li><a href="#">SRQ 29</a></li>
+                <li><a href="/posts">Postingan</a></li>
+                <li><a href="/chatify">Chat BK</a></li>
+                <li><a href="/ai">Yume AI</a></li>
+                <li><a href="/srq29">SRQ 29</a></li>
                 <li><a href="/about">About Us</a></li>
             </ul>
         </nav>
@@ -54,7 +54,7 @@
                 </a>
             </li>
             <li>
-                <a style="font-size: 20px" href="/srq29" class="{{ Request::is('srq29') ? 'active-section' : '' }}">
+                <a style="font-size: 20px" href="/srq29" class="{{ Request::is('srq29' || 'kuis') ? 'active-section' : '' }}">
                     <span class="rect"></span>
                     <span class="circle"></span>
                     SRQ-29
@@ -65,6 +65,14 @@
                     <span class="rect"></span>
                     <span class="circle"></span>
                     About Us
+                </a>
+            </li>
+            <hr style="color: white"; width="75%">
+            <li>
+                <a style="font-size: 20px" href="{{ route('profile.show') }}">
+                    <span class="rect"></span>
+                    <span class="circle"></span>
+                    Profile Settings
                 </a>
             </li>
             <li>
@@ -82,6 +90,6 @@
         </ul>
     </nav>
     <ul class="social-icons">
-        <li style="color: white"> <h5>Selamat Datang, {{ Auth::user()->name }}</h4</li>
+        <li style="color: white"><h5>Selamat Datang, {{ Auth::user()->name }}</h4</li>
     </ul>
 </div>

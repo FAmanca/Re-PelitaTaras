@@ -10,6 +10,7 @@
             <hr>
             @if (isset($response))
                 <p class="user" id="userMessage">{{ $user }}<strong> : User</strong></p>
+                <br>
                 <p class="yume" id="typingEffect"><strong>Yume :</strong> </p>
                 <script>
                     document.addEventListener("DOMContentLoaded", function() {

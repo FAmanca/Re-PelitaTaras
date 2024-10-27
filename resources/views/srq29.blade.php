@@ -8,7 +8,7 @@
         <p class="instructions-text">
             Bacalah petunjuk ini seluruhnya sebelum mulai mengisi. Pertanyaan berikut berhubungan dengan masalah yang mungkin mengganggu Anda selama 30 hari terakhir. Apabila Anda menganggap pertanyaan itu Anda alami dalam 30 hari terakhir, pilih opsi Ya dan sebaliknya, jika tidak, pilihlah opsi tidak. Jawaban Anda bersifat rahasia dan hanya untuk pemecahan masalah Anda.
         </p>
-        <a href="/srq29" class="start-btn-container" style="text-decoration: none">
+        <a href="/kuis" class="start-btn-container" style="text-decoration: none">
             <button class="btn btn-success start-btn">Mulai Mengerjakan</button>
         </a>
     </div>
