@@ -5,9 +5,13 @@ namespace App\Http\Controllers;
 use DateTime;
 use App\Models\Kuis;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Validation\ValidationException;
+use App\Models\User; // Pastikan ini ada di bagian atas
+
 
 class KuisController extends Controller
 {
@@ -24,6 +28,7 @@ class KuisController extends Controller
     public function show()
     {
         $questions = config('srq.kuis');
+        session()->forget(['score', 'depression', 'substanceAbuse', 'psychoticDisorder', 'ptsd', 'title', 'tanggalWaktu']);
         return view('kuis', [
             "title" => "SRQ 29",
             "kuis" => $questions
@@ -58,12 +63,10 @@ class KuisController extends Controller
             $depression = true;
         }
 
-        // Check for substance abuse (question 21)
         if (isset($responses["question21"]) && $responses["question21"] === 'ya') {
             $substanceAbuse = true;
         }
 
-        // Check for psychotic disorder (questions 22-24)
         for ($i = 22; $i <= 24; $i++) {
             if (isset($responses["question$i"]) && $responses["question$i"] === 'ya') {
                 $psychoticDisorder = true;
@@ -71,7 +74,6 @@ class KuisController extends Controller
             }
         }
 
-        // Check for PTSD (questions 25-29)
         for ($i = 25; $i <= 29; $i++) {
             if (isset($responses["question$i"]) && $responses["question$i"] === 'ya') {
                 $ptsd = true;
@@ -79,7 +81,7 @@ class KuisController extends Controller
             }
         }
 
-        return view('result', [
+        session([
             'score' => $score,
             'depression' => $depression,
             'substanceAbuse' => $substanceAbuse,
@@ -89,6 +91,29 @@ class KuisController extends Controller
             'tanggalWaktu' => $tanggal
         ]);
 
+        $user = User::find(Auth::user()->id);  //Auth::user();
+        $user->mengisi_srq = 1;
+        $user->save();
+
+        return view('result', [
+            'score' => $score,
+            'depression' => $depression,
+            'substanceAbuse' => $substanceAbuse,
+            'psychoticDisorder' => $psychoticDisorder,
+            'ptsd' => $ptsd,
+            'title' => 'Hasil Test',
+            'tanggalWaktu' => $tanggal,
+            'user' => $user
+        ]);
 
     }
+
+    public function printPDF()
+    {
+        $nama =  Auth::user()->name;
+        $pdf = Pdf::loadView('pdf');
+        return $pdf->download("hasilSRQ-29-{$nama}.pdf");
+
+    }
+
 }

@@ -25,7 +25,7 @@
     </div>
     <nav>
         <ul>
-            <li >
+            <li>
                 <a style="font-size: 20px" href="/home" class="{{ Request::is('home') ? 'active-section' : '' }}">
                     <span class="rect"></span>
                     <span class="circle"></span>
@@ -33,7 +33,7 @@
                 </a>
             </li>
             <li>
-                <a style="font-size: 20px" href="/posts" class="{{ Request::is('posts') ? 'active-section' : '' }}" >
+                <a style="font-size: 20px" href="/posts" class="{{ Request::is('posts') ? 'active-section' : '' }}">
                     <span class="rect"></span>
                     <span class="circle"></span>
                     Postingan
@@ -54,14 +54,16 @@
                 </a>
             </li>
             <li>
-                <a style="font-size: 20px" href="/srq29" class="{{ Request::is('srq29' || 'kuis') ? 'active-section' : '' }}">
+                <a style="font-size: 20px" href="/srq29"
+                    class="{{ Request::is('srq29' || 'kuis') ? 'active-section' : '' }}">
                     <span class="rect"></span>
                     <span class="circle"></span>
                     SRQ-29
                 </a>
             </li>
             <li>
-                <a style="font-size: 20px" href="{{ route('about') }}" class="{{ Request::is('about') ? 'active-section' : '' }}">
+                <a style="font-size: 20px" href="{{ route('about') }}"
+                    class="{{ Request::is('about') ? 'active-section' : '' }}">
                     <span class="rect"></span>
                     <span class="circle"></span>
                     About Us
@@ -75,6 +77,17 @@
                     Profile Settings
                 </a>
             </li>
+            @if (Auth::check() && Auth::user()->status === 'admin')
+                <!-- Pastikan pengguna terautentikasi dan memiliki role admin -->
+                <li>
+                    <a style="font-size: 20px;" href="/admin">
+                        <span class="rect"></span>
+                        <span class="circle"></span>
+                        Admin
+                    </a>
+                </li>
+            @endif
+
             <li>
                 <span class="rect"></span>
                 <span class="circle"></span>
@@ -90,6 +103,7 @@
         </ul>
     </nav>
     <ul class="social-icons">
-        <li style="color: white"><h5>Selamat Datang, {{ Auth::user()->name }}</h4</li>
+        <li style="color: white">
+            <h5>Selamat Datang, {{ Auth::user()->name }}</h4< /li>
     </ul>
 </div>

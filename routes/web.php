@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Middleware\CheckRole;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AichatController;
 use App\Http\Controllers\KuisController;
+use App\Http\Controllers\AichatController;
+use App\Http\Controllers\UsersController;
 
 Route::get('/', function () {
     if (Auth::check()) {
@@ -12,12 +14,17 @@ Route::get('/', function () {
     return view('landing');
 });
 
-Route::get('/about', function() {
+Route::get('/about', function () {
     return view('about');
 })->name('about');
 
+
+// Route::get('/pdf', function() {
+//     return view('pdf');
+// })->name('about');
+
 //! POST
-Route::get('/posts', function() {
+Route::get('/posts', function () {
     return view('posts');
 })->name('posts');
 //! POST
@@ -31,6 +38,7 @@ Route::post('/ai', [AichatController::class, 'store'])->name('ai');
 Route::get('/srq29', [KuisController::class, 'index'])->name('srq29');
 Route::get('/kuis', [KuisController::class, 'show'])->name('srq29');
 Route::post('/hasil', [KuisController::class, 'submit'])->name('srq.submit');
+Route::get('/print', [KuisController::class, 'printPDF'])->name('srq.print');
 //! SRQ 29
 
 Route::get('/home', function () {
@@ -47,8 +55,11 @@ Route::middleware([
     })->name('dashboard');
 });
 
-Route::get('/admin', function() {
-    return view('admin/dashboard');
-})->name('admin');
+// Route::get('/admin', function() {
+//     return view('admin/dashboard');
+// })->name('admin');
 
-
+// Admin routes with role check
+Route::middleware(['auth', CheckRole::class])->group(function () {
+    Route::get('/admin', [UsersController::class, 'index']);
+});

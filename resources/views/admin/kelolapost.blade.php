@@ -23,42 +23,51 @@
         </div>
 
 
-        <div class="container">
-            <div class="page-inner">
-                <div class="page-header">
-                    <h4 class="page-title">Dashboard</h4>
-                </div>
-                <div class="card">
-                    <div class="card-header">
-                        <div class="card-title">Users</div>
-                    </div>
-                    <div class="card-body">
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Nama</th>
-                                    <th scope="col">Kelas</th>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">SRQ-29</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($users as $u)
-                                    <tr>
-                                        <td>{{ $u->name }}</td>
-                                        <td>{{ $u->kelas }}</td>
-                                        <td>{{ $u->email }}</td>
-                                        <td>{{ $u->mengisi_srq }}</td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+    <div class="container">
+        <div class="page-inner">
+            <div class="page-header">
+                <h4 class="page-title">Dashboard</h4>
             </div>
+            <div class="card">
+                <div class="card-header">
+                  <div class="card-title">Users</div>
+                </div>
+                <div class="card-body">
+                  <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">First</th>
+                        <th scope="col">Last</th>
+                        <th scope="col">Handle</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td colspan="2">Larry the Bird</td>
+                        <td>@twitter</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
         </div>
+    </div>
 
-        {{-- <footer class="footer">
+    {{-- <footer class="footer">
         <div class="container-fluid d-flex justify-content-between">
             <nav class="pull-left">
                 <ul class="nav">
