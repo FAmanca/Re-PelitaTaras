@@ -37,7 +37,7 @@
                     @csrf
                     <input id="content" class="form-control form-control-lg" name="content"
                         placeholder="Tulis pesan Anda di sini...">
-                    <button type="submit" class="">Kirim</button>
+                    <button onclick="usermsg()" type="submit" class="">Kirim</button>
                 </form>
                 <p id="pesan">Yume masih dalam pengembangan.</p>
             </div>
@@ -47,9 +47,11 @@
                 const userMessage = document.getElementById('userMessage');
 
                 // Update the <p class="user"> when the input field value changes
-                input.addEventListener("input", function() {
-                    userMessage.textContent = input.value;
-                });
+                function usermsg(){
+                    input.addEventListener("input", function() {
+                        userMessage.textContent = input.value;
+                    });
+                }
                 console.log(input.value);
             </script>
 

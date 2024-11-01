@@ -16,17 +16,18 @@ class Post extends Model
         'excerpt',
         'slug',
         'author',
-        'body'
+        'body',
+        'publish_at'
     ];
 
-    public function sluggable(): array
-    {
-        return [
-            'slug' => [
-                'source' => 'title'
-            ]
-        ];
-    }
+    // public function sluggable(): array
+    // {
+    //     return [
+    //         'slug' => [
+    //             'source' => 'title'
+    //         ]
+    //     ];
+    // }
 
 
 }

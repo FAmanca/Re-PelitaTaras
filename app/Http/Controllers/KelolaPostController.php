@@ -13,10 +13,10 @@ class KelolaPostController extends Controller
 {
     public function index()
     {
-        $posts = Post::orderBy('title')->get();
-        return view('kelolapost', [
+        // $posts = Post::orderBy('title')->get();
+        return view('admin/kelolapost', [
             "title" => "Kelola Post",
-            "posts" => $posts
+            // "posts" => $posts
         ]);
     }
 
@@ -30,7 +30,7 @@ class KelolaPostController extends Controller
 
     public function create()
     {
-        return view('createpost');
+        return view('admin/createpost');
     }
 
     public function store(Request $request)
@@ -133,7 +133,7 @@ public function update(Request $request, Post $post)
         $post->body = $description;
         $post->save();
 
-        return redirect('/kelolapost')->with('success', 'Postingan berhasil diperbarui.');
+        return redirect('admin/kelolapost')->with('success', 'Postingan berhasil diperbarui.');
     } catch (ValidationException $e) {
         return redirect()->back()->withErrors($e->errors())->withInput();
     } catch (\Exception $e) {
@@ -148,7 +148,7 @@ public function update(Request $request, Post $post)
             $post = Post::findOrFail($id);
             $post->delete();
 
-            return Redirect::to('/kelolapost')->with('success', 'Postingan Berhasil Dihapus');
+            return Redirect::to('admin/kelolapost')->with('success', 'Postingan Berhasil Dihapus');
         } catch (\Exception $e) {
             return redirect()->route('posts.index')->with('error', 'Terjadi kesalahan. Mohon coba lagi nanti.');
         }

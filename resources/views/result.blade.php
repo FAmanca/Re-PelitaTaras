@@ -34,6 +34,7 @@
                         <a href="{{ route('srq.print') }}" target="_blank">
                             <button class="btn btn-primary my-3" style="width: 100%;">Unduh Hasil PDF</button>
                         </a>
+                    
                 </div>
             </div>
         </div>

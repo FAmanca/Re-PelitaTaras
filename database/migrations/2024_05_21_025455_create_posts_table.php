@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('author');
             $table->string('slug')->unique();
             $table->text('body');
+            $table->string('image_path')->nullable();
             $table->timestamp('publish_at')->nullable();
             $table->timestamps();
         });

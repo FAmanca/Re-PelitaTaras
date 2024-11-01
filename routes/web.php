@@ -4,8 +4,10 @@ use App\Http\Middleware\CheckRole;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KuisController;
-use App\Http\Controllers\AichatController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\AichatController;
+use App\Http\Controllers\KelolaPostController;
 
 Route::get('/', function () {
     if (Auth::check()) {
@@ -24,9 +26,8 @@ Route::get('/about', function () {
 // })->name('about');
 
 //! POST
-Route::get('/posts', function () {
-    return view('posts');
-})->name('posts');
+Route::get('/posts', [PostController::class, 'index'])->name('posts');
+Route::get('/post/{slug}', [PostController::class, 'show'])->name('posts.show');
 //! POST
 
 //? AI CHAT
@@ -60,6 +61,17 @@ Route::middleware([
 // })->name('admin');
 
 // Admin routes with role check
+
 Route::middleware(['auth', CheckRole::class])->group(function () {
     Route::get('/admin', [UsersController::class, 'index']);
+
+    Route::get('/kelolapost', [PostController::class, 'kelola'])->name('posts.index');
+    Route::post('/createpost', [PostController::class, 'store'])->name('posts.store');
+    Route::get('/createpost', [PostController::class, 'create'])->name('posts.create');
+    Route::delete('/deletepost/{id}', [PostController::class, 'delete'])->name('post.delete');
+    Route::put('kelolapost/editpost/{id}', [PostController::class, 'edit'])->name('posts.edit');
+    Route::put('kelolapost/updatepost/{id}', [PostController::class, 'update'])->name('posts.update');
+
+    Route::delete('/kelolapost/deletepost/{id}', [KelolaPostController::class, 'destroy'])->name('posts.destroy');
+    Route::post('/kelolakuis/createkuis', [KuisController::class, 'store'])->name('kuis.store');
 });

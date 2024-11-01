@@ -66,29 +66,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
-    <script>
-        $(document).ready(function() {
-            var music = document.getElementById('background-music');
-            var playButton = document.getElementById('play-music');
-
-            // Coba untuk memainkan musik
-            function tryPlayMusic() {
-                music.play().catch(function(error) {
-                    // Jika autoplay tidak diizinkan, tampilkan tombol play
-                    playButton.style.display = 'block';
-                });
-            }
-
-            // Menjalankan fungsi untuk mencoba memainkan musik
-            tryPlayMusic();
-
-            // Menangani klik tombol play
-            playButton.addEventListener('click', function() {
-                music.play();
-                playButton.style.display = 'none';
-            });
-        });
-    </script>
+    
 </body>
 
 </html>

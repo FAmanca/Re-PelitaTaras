@@ -48,7 +48,7 @@
                                         <td>{{ $u->name }}</td>
                                         <td>{{ $u->kelas }}</td>
                                         <td>{{ $u->email }}</td>
-                                        <td>{{ $u->mengisi_srq }}</td>
+                                        <td>{{ $u->mengisi_srq == 0 ? 'Belum' : 'Sudah' }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
